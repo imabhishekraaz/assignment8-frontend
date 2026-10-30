@@ -16,12 +16,15 @@ const Login = ({userName, isLogin}) => {
 
   return (
     <>
-        <div className='w-screen h-screen flex flex-row  justify-between px-30 py-30'>
+        <div className='w-screen h-screen flex flex-row  justify-between px-60 py-40'>
           <img 
             className=''
             src={img1} 
             alt="image-1" />
           <div className='h-full flex flex-col gap-5'>
+            <div>
+              <h2 className='text-2xl text-center'>Welcome Back!</h2>
+            </div>
               <div
                 className='border-2 border-gray-200 rounded-xl'
               >
