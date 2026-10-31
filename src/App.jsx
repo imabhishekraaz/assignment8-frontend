@@ -4,6 +4,7 @@ import Login from './LoginAndSignup/Login'
 import InputBox from './Components/InputBox';
 import {person } from 'ionicons/icons';
 import Button from './Components/Button';
+import Header from './Components/Header';
 
 function App() {
   const [isLogin, setIsLogin] = useState(false);
@@ -12,6 +13,7 @@ function App() {
 
   return (
     <>
+    <Header/>
     <Routes>
       {/* <Route path='/test' element={<Button onClick={setUserName} name={"Submit"}/>}/> */}
       <Route path='/' element={<Login userName={setUserName} isLogin={isLogin}/>}/>

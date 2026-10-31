@@ -16,7 +16,7 @@ const Login = ({userName, isLogin}) => {
 
   return (
     <>
-        <div className='w-screen h-screen flex flex-row  justify-between px-60 py-40'>
+        <div className='w-screen h-screen flex flex-row  justify-between px-40 py-20'>
           <img 
             className=''
             src={img1} 
@@ -30,7 +30,7 @@ const Login = ({userName, isLogin}) => {
               >
                 <InputBox
                   placeHolder={"Mobile Number"}
-                  type={"Text"}
+                  type={"tel"}
                   value={telephone}
                   onChange={setTelephone}
                   icon={call}
@@ -41,9 +41,9 @@ const Login = ({userName, isLogin}) => {
               >
                 <InputBox
                   placeHolder={"Password"}
-                  type={"Text"}
-                  value={telephone}
-                  onChange={setTelephone}
+                  type={"Password"}
+                  value={password}
+                  onChange={setPassword}
                   icon={lockClosed}
                 />
               </div>
