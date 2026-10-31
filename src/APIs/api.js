@@ -17,6 +17,15 @@ class User{
         const data = await axios.post(`${API}/register`, details);
         return data;
     };
+
+    async verifyUser(token){
+        const data = await axios.get(`${API}/verify`,{
+            headers: {
+                Authorization: token
+            }
+        })
+        return data;
+    }
 };
 
 export const user = new User();

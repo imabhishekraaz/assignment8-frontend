@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import img1 from '../public/img-1.webp';
-import InputBox from '../Components/InputBox';
+import img1 from '../../public/img-1.webp';
+import InputBox from '../../Components/InputBox';
 import { call, lockClosed } from 'ionicons/icons';
-import Button from '../Components/Button';
+import Button from '../../Components/Button';
 
 const Login = ({userName, isLogin}) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -16,9 +16,9 @@ const Login = ({userName, isLogin}) => {
 
   return (
     <>
-        <div className='w-screen h-screen flex flex-row  justify-between px-40 py-20'>
+        <div className='w-full max-h-dvh flex items-center justify-evenly gap-10 overflow-x-hidden'>
           <img 
-            className=''
+            className='w-1/2 max-w-150 h-auto object-contain mt-10'
             src={img1} 
             alt="image-1" />
           <div className='h-full flex flex-col gap-5'>
@@ -26,7 +26,7 @@ const Login = ({userName, isLogin}) => {
               <h2 className='text-2xl text-center'>Welcome Back!</h2>
             </div>
               <div
-                className='border-2 border-gray-200 rounded-xl'
+                className='border-2 border-gray-200 rounded-xl w-80 h-12 flex justify-center'
               >
                 <InputBox
                   placeHolder={"Mobile Number"}
@@ -37,7 +37,7 @@ const Login = ({userName, isLogin}) => {
                 />
               </div>
             <div
-                className='border-2 border-gray-200 rounded-xl'
+                className=' w-80 h-12 flex justify-center border-2 border-gray-200 rounded-xl'
               >
                 <InputBox
                   placeHolder={"Password"}
