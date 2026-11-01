@@ -3,16 +3,36 @@ import img1 from '../../public/img-1.webp';
 import InputBox from '../../Components/InputBox';
 import { call, lockClosed } from 'ionicons/icons';
 import Button from '../../Components/Button';
+import { user } from '../../APIs/api';
+import { useNavigate } from 'react-router-dom';
+import { token } from '../../APIs/Auth';
 
-const Login = ({userName, isLogin}) => {
-  const [isLoading, setIsLoading] = useState(true);
+const Login = ({userName, isLogin, setError}) => {
   const [telephone, setTelephone] = useState(null);
-  const [password, setPassword] = useState(null)
+  const [password, setPassword] = useState(null);
+  const navigate = useNavigate();
 
-  const handleLogin = ()=> {
-    alert("clicked")
-    return;
-  }
+
+  const handleLogin = async ()=> {
+    if(!telephone || !password){
+      setError("telephone and password are required");
+      return;
+    }
+    const loginDetails = {
+      telephone:telephone,
+      password:password
+    };
+    const res = await user.login(loginDetails)
+     
+    if(!res){
+      setError("Something went wrong")
+    };
+     
+    setError("");
+    console.log(res)
+    token.saveToken(res.data.token);
+    navigate("/dashboard");
+  };
 
   return (
     <>

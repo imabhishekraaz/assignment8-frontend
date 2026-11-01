@@ -6,20 +6,26 @@ import {person } from 'ionicons/icons';
 import Button from './Components/Button';
 import Header from './Components/Header';
 import Dashboard from './Pages/Dashboard/Dashboard';
-import { createEvent } from './Utils/Event';
+import Auth from './Auth/Auth'
+import Error from './Error/Error';
 
 function App() {
   const [isLogin, setIsLogin] = useState(false);
   const [userName, setUserName] = useState("Abhishek");
   const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
 
-  return (
+  return ( 
     <>
+    <Error error={error}/>
     <Header/>
     <Routes>
-      <Route path='/test' element={<Auth setError={setError} isLogin={setIsLogin}/>}>
-        <Route path='/login' element={<Login userName={setUserName} isLogin={isLogin}/>}/>
-        <Route path='/' element={<Dashboard/>}/>
+      {/* Public Routes */}
+      <Route path='/login' element={<Login setError={setError} setUserName={setUserName} setIsLogin={setIsLogin}/>}/>
+
+      {/* private Routes */}
+      <Route path='/' element={<Auth setError={setError} setIsLogin={setIsLogin} setUserName={setUserName}/>}>
+        <Route path='/dashboard' element={<Dashboard/>}/>
       </Route>
     </Routes>
     </>

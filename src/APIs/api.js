@@ -13,15 +13,23 @@ class User{
         return data;
     };
 
+    /*
+        Regsiter the User
+        Details: name, telephone, email, password
+    */
     async registerUser(details){
         const data = await axios.post(`${API}/register`, details);
         return data;
     };
 
+    /*
+        Verify the token
+        Details: Token from the localstorage
+    */
     async verifyUser(token){
-        const data = await axios.get(`${API}/verify`,{
+        const data = await axios.post(`${API}/auth/verify`,{
             headers: {
-                Authorization: token
+                Authorization: `Bearer ${token}`
             }
         })
         return data;
