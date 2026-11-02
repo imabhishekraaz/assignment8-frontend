@@ -3,6 +3,7 @@ import React from 'react'
 const Error = ({error}) => {
   return (
     <>
+    {/* Display the Error   */}
         <div>
             { error && (
                 <div className='fixed flex w-full h-auto justify-center items-center pt-15'>
