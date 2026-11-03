@@ -3,7 +3,7 @@ import { user } from '../APIs/api'
 import { Navigate, Outlet, useNavigate } from 'react-router-dom'
 
 const Auth = ({setError, setIsLogin, setUserName}) => {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [isAuth, setAuth] = useState(false);
 
   useEffect(()=>{
@@ -11,20 +11,11 @@ const Auth = ({setError, setIsLogin, setUserName}) => {
   },[]);
 
   const Authentication = async ()=> {
-
-    const token = localStorage.getItem("token");
-    if(!token){
-      setIsLogin(false);
-      setLoading(false);
-      setAuth(false);
-      setError("Token is missing")
-      return;
-    };
-
-    const res = await user.verifyUser(token);
+    try {
+      const res = await user.verifyUser();
 
       if(!res){
-        console.error(error)
+        console.error("something went wrong")
         localStorage.removeItem("token");
         setIsLogin(false);
         setAuth(false);
@@ -33,9 +24,17 @@ const Auth = ({setError, setIsLogin, setUserName}) => {
       }
       setError("")
       setIsLogin(true)
-      setUserName(e.data.user.name)
+      setUserName(res.data.user.name)
       setAuth(true);
+    } catch (error) {
+      console.error("Authentication failed", error);
+      localStorage.removeItem("token");
+      setIsLogin(false);
+      setAuth(false);
+      setError("Session expired. Please login again.");
+    } finally {
       setLoading(false)
+    }
   }
 
   if(loading){

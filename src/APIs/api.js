@@ -26,10 +26,11 @@ class User{
         Verify the token
         Details: Token from the localstorage
     */
-    async verifyUser(token){
-        const data = await axios.post(`${API}/auth/verify`,{
+    async verifyUser(){
+        const token = localStorage.getItem("token");
+        const data = await axios.post(`${API}/auth/verify`,{},{
             headers: {
-                Authorization: `Bearer ${token}`
+                authorization: `Bearer ${token}`
             }
         })
         return data;

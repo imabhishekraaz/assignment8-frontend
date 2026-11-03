@@ -26,19 +26,20 @@ const Login = ({userName, isLogin, setError}) => {
      
     if(!res){
       setError("Something went wrong")
+      return;
     };
      
     setError("");
     console.log(res)
     token.saveToken(res.data.token);
-    navigate("/dashboard");
+    navigate("/");
   };
 
   return (
     <>
         <div className='w-full max-h-dvh flex items-center justify-evenly gap-10 overflow-x-hidden'>
           <img 
-            className='w-1/2 max-w-150 h-auto object-contain mt-10'
+            className='w-1/2 max-w-120 h-auto object-contain mt-10'
             src={img1} 
             alt="image-1" />
           <div className='h-full flex flex-col gap-5'>
@@ -46,7 +47,7 @@ const Login = ({userName, isLogin, setError}) => {
               <h2 className='text-2xl text-center'>Welcome Back!</h2>
             </div>
               <div
-                className='border-2 border-gray-200 rounded-xl w-80 h-12 flex justify-center'
+                className='border-2 border-gray-200 rounded-xl w-60 h-12 flex justify-center'
               >
                 <InputBox
                   placeHolder={"Mobile Number"}
@@ -57,7 +58,7 @@ const Login = ({userName, isLogin, setError}) => {
                 />
               </div>
             <div
-                className=' w-80 h-12 flex justify-center border-2 border-gray-200 rounded-xl'
+                className=' w-60 h-12 flex justify-center border-2 border-gray-200 rounded-xl'
               >
                 <InputBox
                   placeHolder={"Password"}
@@ -68,7 +69,7 @@ const Login = ({userName, isLogin, setError}) => {
                 />
               </div>
               <div
-                className='w-full h-12 bg-blue-700 overflow-hidden flex justify-center items-center rounded-xl border-2 border-gray-200'
+                className='w-full  h-12 bg-blue-700 overflow-hidden flex justify-center items-center rounded-xl border-2 border-gray-200'
               >
                 <Button
                   onClick={handleLogin}

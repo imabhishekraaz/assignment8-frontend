@@ -3,7 +3,9 @@ import React from 'react'
 const Dashboard = () => {
   return (
     <>
-        <div>Welcome to Dashboard page</div>
+        <div className='bg-white'>
+          Abhishek Raj
+        </div>
     </>
 )
 }

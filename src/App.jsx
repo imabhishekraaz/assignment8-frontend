@@ -25,7 +25,7 @@ function App() {
 
       {/* private Routes */}
       <Route path='/' element={<Auth setError={setError} setIsLogin={setIsLogin} setUserName={setUserName}/>}>
-        <Route path='/dashboard' element={<Dashboard/>}/>
+        <Route path='/' element={<Dashboard/>}/>
       </Route>
     </Routes>
     </>
