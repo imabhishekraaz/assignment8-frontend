@@ -18,7 +18,7 @@ function App() {
   return ( 
     <>
     <Error error={error}/>
-    <Header/>
+    <Header isLogin={isLogin} userName={userName}/>
     <Routes>
       {/* Public Routes */}
       <Route path='/login' element={<Login setError={setError} setUserName={setUserName} setIsLogin={setIsLogin}/>}/>

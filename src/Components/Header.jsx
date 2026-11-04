@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Header = () => {
+const Header = ({isLogin, userName}) => {
   return (
     <>
         <div className='w-full flex flex-row bg-blue-700 py-2 justify-between px-20 items-center'>
