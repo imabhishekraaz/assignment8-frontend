@@ -8,6 +8,7 @@ import Header from './Components/Header';
 import Dashboard from './Pages/Dashboard/Dashboard';
 import Auth from './Auth/Auth'
 import Error from './Error/Error';
+import { ProfileAvatar } from './Hooks/ProfileAvatar';
 
 function App() {
   const [isLogin, setIsLogin] = useState(false);
@@ -26,6 +27,7 @@ function App() {
       {/* private Routes */}
       <Route path='/' element={<Auth setError={setError} setIsLogin={setIsLogin} setUserName={setUserName}/>}>
         <Route path='/' element={<Dashboard/>}/>
+        <Route path='/test' element={<ProfileAvatar userName={"Mahesh Raj"}/>}/>
       </Route>
     </Routes>
     </>
