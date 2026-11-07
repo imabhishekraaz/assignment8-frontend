@@ -1,6 +1,21 @@
 import React from 'react'
+import { ProfileAvatar } from '../Hooks/ProfileAvatar'
 
 const Header = ({isLogin, userName}) => {
+
+    if(isLogin){
+        return (
+            <>
+            <div className='flex justify-between px-8 py-2.5 bg-blue-500'>
+                <h1 className='text-2xl font-semibold text-white'>Vistiq</h1>
+                <div className='flex gap-2 just items-center'>
+                    <ProfileAvatar userName={userName}/>
+                    <span className='text-white'>{userName}</span>
+                </div>
+            </div>
+            </>
+        )
+    }
   return (
     <>
         <div className='w-full flex flex-row bg-blue-700 py-2 justify-between px-20 items-center'>

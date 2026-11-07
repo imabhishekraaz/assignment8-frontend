@@ -6,8 +6,9 @@ import Button from '../../Components/Button';
 import { user } from '../../APIs/api';
 import { useNavigate } from 'react-router-dom';
 import { token } from '../../APIs/Auth';
+import { User } from '../../CONSTANT/CONSTANT';
 
-const Login = ({userName, isLogin, setError}) => {
+const Login = ({setUserName, SetIsLogin, setError}) => {
   const [telephone, setTelephone] = useState(null);
   const [password, setPassword] = useState(null);
   const navigate = useNavigate();
@@ -28,8 +29,15 @@ const Login = ({userName, isLogin, setError}) => {
       setError("Something went wrong")
       return;
     };
-     
+    const user = new User(
+      res.data.user.name,
+      res.data.user.role,
+      res.data.user.email,
+      res.data.user.telephone
+    )
     setError("");
+    setUserName(user.getName());
+    SetIsLogin(true);
     console.log(res)
     token.saveToken(res.data.token);
     navigate("/");
