@@ -1,5 +1,6 @@
 import React from "react";
 
+// Make for the show the total in the dashboard
 export const Slide = () => {
     return (
         <>
