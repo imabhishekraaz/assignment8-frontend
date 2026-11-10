@@ -1,14 +1,18 @@
 import React, { useState } from "react";
 import { ProfileAvatar } from "../Hooks/ProfileAvatar";
 
-export const Slidebar = ({role,userName})=> {
+export const Slidebar = ({role,userName, setNav})=> {
     const [active, setActive] = useState(101);
-
     const VisitorButtons = [
-        {title:"Book Appointment", type:101},
-        {title:"History", type: 102},
-        {title:"Setting", type: 103}
-    ]
+        {title:"Book Appointment", type:101,Nav:"book-appointment"},
+        {title:"History", type: 102, Nav:"history"},
+        {title:"Settings", type: 103, Nav: "settings"}
+    ];
+
+    const handleNav = (Nav,clrType)=>{
+        setActive(clrType);
+        setNav(Nav);
+    };
     const handleLogOut = ()=> {
         alert("Not implemented");
     }
@@ -27,7 +31,7 @@ export const Slidebar = ({role,userName})=> {
                <div className="mx-3 cursor-pointer">
                  { VisitorButtons.map((btn)=>(
                 <p
-                    onClick={()=>setActive(btn.type)}
+                    onClick={()=>handleNav(btn.Nav,btn.type)}
                     className={active === btn.type ? "bg-blue-400 py-2 px-3 rounded-lg text-white font-semibold" : "bg-white font-semibold py-2 px-3"}
                     >{btn.title}</p>
             ))}

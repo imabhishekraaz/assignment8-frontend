@@ -5,7 +5,7 @@ import InputBox from './Components/InputBox';
 import {person } from 'ionicons/icons';
 import Button from './Components/Button';
 import Header from './Components/Header';
-import Dashboard from './Pages/Dashboard/Dashboard';
+import Dashboard from './Visitor/Pages/Main';
 import Auth from './Auth/Auth'
 import Error from './Error/Error';
 import { ProfileAvatar } from './Hooks/ProfileAvatar';
