@@ -22,7 +22,7 @@ function App() {
     <Header isLogin={isLogin} userName={userName}/>
     <Routes>
       {/* Public Routes */}
-      <Route path='/login' element={<Login setError={setError} setUserName={setUserName} setIsLogin={setIsLogin}/>}/>
+      <Route path='/login' element={<Login setError={setError} setUserName={setUserName} SetIsLogin={setIsLogin}/>}/>
 
       {/* private Routes */}
       <Route path='/' element={<Auth setError={setError} setIsLogin={setIsLogin} setUserName={setUserName}/>}>

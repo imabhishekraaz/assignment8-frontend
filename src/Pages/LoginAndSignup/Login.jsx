@@ -29,16 +29,16 @@ const Login = ({setUserName, SetIsLogin, setError}) => {
       setError("Something went wrong")
       return;
     };
-    const user = new User(
+    const UserDetails = new User(
       res.data.user.name,
       res.data.user.role,
       res.data.user.email,
       res.data.user.telephone
     )
     setError("");
-    setUserName(user.getName());
+    setUserName(UserDetails.getName());
     SetIsLogin(true);
-    console.log(res)
+    console.log(res);
     token.saveToken(res.data.token);
     navigate("/");
   };

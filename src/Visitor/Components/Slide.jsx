@@ -5,7 +5,7 @@ export const Slide = () => {
     return (
         <>
             <div>
-                <h1>Abhishek Raj</h1>
+                <h1>slide Bar</h1>
             </div>
         </>
     )

@@ -1,9 +1,15 @@
 import React from "react";
+import { Slide } from "../components/Slide";
 
-export const Dashboard = ()=> {
+export const Dashboard = ({userName})=> {
     return (
         <>
-            <h2>Abhishek Raj</h2>
+        <div>
+            {userName && (
+                <h1>Good Morning, {userName}</h1>
+            )}
+            <Slide/>
+        </div>
         </>
     )   
 }

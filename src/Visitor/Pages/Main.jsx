@@ -3,6 +3,7 @@ import { Slidebar } from '../../Components/Slidebar'
 import { Dashboard } from './Dashboard';
 import { HistoryPage } from './HistoryPage';
 import { SettingsPage } from './SettingsPage';
+import { AppointmentPage } from './appointmentPage';
 
 const Main = ({userName}) => {
   const [Nav, setNav] = useState('book-appointment');
@@ -15,9 +16,10 @@ const Main = ({userName}) => {
       </div>
       <div className="w-4/5 h-inherit overflow-hidden ">
         {
-          Nav === "book-appointment" && <Dashboard/> ||
+          Nav === "book-appointment" && <AppointmentPage/> ||
           Nav === "history" && <HistoryPage/> ||
-          Nav === "settings" && <SettingsPage/>
+          Nav === "settings" && <SettingsPage/> ||
+          Nav === "dashboard" && <Dashboard userName={userName}/>
         }
       </div>
     </div>

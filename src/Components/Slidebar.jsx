@@ -1,17 +1,21 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ProfileAvatar } from "../Hooks/ProfileAvatar";
 
 export const Slidebar = ({role,userName, setNav})=> {
-    const [active, setActive] = useState(101);
+    const [active, setActive] = useState(100);
     const VisitorButtons = [
+        {title:"Dashboard", type:100, Nav:"dashboard"},
         {title:"Book Appointment", type:101,Nav:"book-appointment"},
         {title:"History", type: 102, Nav:"history"},
-        {title:"Settings", type: 103, Nav: "settings"}
+        {title:"Settings", type: 103, Nav: "settings"},
     ];
+    useEffect(()=>{
+        handleNav();
+    },[])
 
     const handleNav = (Nav,clrType)=>{
-        setActive(clrType);
-        setNav(Nav);
+        setActive(clrType || 100);
+        setNav(Nav || "dashboard");
     };
     const handleLogOut = ()=> {
         alert("Not implemented");
