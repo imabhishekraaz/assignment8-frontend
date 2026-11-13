@@ -14,5 +14,5 @@ export function ProfileAvatar({userName}){
           <div className="w-8 h-8 bg-blue-600 flex justify-center items-center rounded-full">
                <p className="text-[12px] font-semibold text-white">{avatarText}</p>
           </div>
-     )
-}
+     );
+};
