@@ -6,7 +6,9 @@ export const Dashboard = ({userName})=> {
         <>
         <div>
             {userName && (
-                <h1>Good Morning, {userName}</h1>
+                <h1
+                    className="text-2xl pl-4 pt-3 font-semibold"
+                >Good Morning, {userName}</h1>
             )}
             <Slide/>
         </div>
